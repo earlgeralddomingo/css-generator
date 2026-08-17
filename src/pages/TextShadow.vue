@@ -142,6 +142,7 @@ const exportHtml = () => {
 
     link.href = url
     link.download = 'text-shadow.html'
+
     document.body.appendChild(link)
     link.click()
     link.remove()
@@ -151,26 +152,30 @@ const exportHtml = () => {
 </script>
 
 <template>
-    <main class="min-h-screen bg-[#f8fafc] text-[#10233f]">
+    <main
+        class="min-h-screen bg-[#f8fafc] text-[#10233f] transition-colors duration-200 dark:bg-gray-950 dark:text-gray-100">
 
         <!-- Header -->
-        <section class="border-b border-slate-200 bg-white">
+        <section
+            class="border-b border-slate-200 bg-white transition-colors duration-200 dark:border-gray-800 dark:bg-gray-950">
+
             <div class="mx-auto max-w-[1400px] px-6 py-8 lg:px-8">
 
                 <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
 
                     <div>
                         <div
-                            class="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#167fa8]">
+                            class="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#167fa8] dark:border-cyan-900/70 dark:bg-cyan-950/40 dark:text-cyan-400">
                             <Sparkles class="h-3.5 w-3.5" />
                             CSS Builder
                         </div>
 
-                        <h1 class="text-3xl font-bold tracking-tight text-[#10233f] sm:text-4xl">
+                        <h1
+                            class="text-3xl font-bold tracking-tight text-[#10233f] sm:text-4xl dark:text-gray-100">
                             Text Shadow Generator
                         </h1>
 
-                        <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-500">
+                        <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-500 dark:text-gray-400">
                             Visually create CSS text shadows and generate clean HTML
                             and CSS instantly.
                         </p>
@@ -178,13 +183,17 @@ const exportHtml = () => {
 
                     <div class="flex flex-wrap items-center gap-3">
 
-                        <button type="button" @click="reset"
-                            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50">
+                        <button
+                            type="button"
+                            @click="reset"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:bg-gray-800">
                             <RotateCcw class="h-4 w-4" />
                             Reset
                         </button>
 
-                        <button type="button" @click="exportHtml"
+                        <button
+                            type="button"
+                            @click="exportHtml"
                             class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#17447f] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#123968]">
                             <Download class="h-4 w-4" />
                             Export HTML
@@ -201,37 +210,47 @@ const exportHtml = () => {
             <div class="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)]">
 
                 <!-- Sidebar -->
-                <aside class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <aside
+                    class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-colors duration-200 dark:border-gray-800 dark:bg-gray-900">
 
                     <!-- Tabs -->
-                    <div class="grid grid-cols-3 border-b border-slate-200">
+                    <div class="grid grid-cols-3 border-b border-slate-200 dark:border-gray-800">
 
-                        <button type="button" @click="activeTab = 'controls'" :class="[
-                            'flex items-center justify-center gap-1.5 px-2 py-3.5 text-xs font-medium transition',
-                            activeTab === 'controls'
-                                ? 'border-b-2 border-cyan-500 bg-cyan-50/50 text-[#167fa8]'
-                                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'
-                        ]">
+                        <button
+                            type="button"
+                            @click="activeTab = 'controls'"
+                            :class="[
+                                'flex items-center justify-center gap-1.5 px-2 py-3.5 text-xs font-medium transition',
+                                activeTab === 'controls'
+                                    ? 'border-b-2 border-cyan-500 bg-cyan-50/50 text-[#167fa8] dark:bg-cyan-950/30 dark:text-cyan-400'
+                                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200'
+                            ]">
                             <SlidersHorizontal class="h-3.5 w-3.5" />
                             Controls
                         </button>
 
-                        <button type="button" @click="activeTab = 'style'" :class="[
-                            'flex items-center justify-center gap-1.5 px-2 py-3.5 text-xs font-medium transition',
-                            activeTab === 'style'
-                                ? 'border-b-2 border-cyan-500 bg-cyan-50/50 text-[#167fa8]'
-                                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'
-                        ]">
+                        <button
+                            type="button"
+                            @click="activeTab = 'style'"
+                            :class="[
+                                'flex items-center justify-center gap-1.5 px-2 py-3.5 text-xs font-medium transition',
+                                activeTab === 'style'
+                                    ? 'border-b-2 border-cyan-500 bg-cyan-50/50 text-[#167fa8] dark:bg-cyan-950/30 dark:text-cyan-400'
+                                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200'
+                            ]">
                             <Palette class="h-3.5 w-3.5" />
                             Style
                         </button>
 
-                        <button type="button" @click="activeTab = 'css'" :class="[
-                            'flex items-center justify-center gap-1.5 px-2 py-3.5 text-xs font-medium transition',
-                            activeTab === 'css'
-                                ? 'border-b-2 border-cyan-500 bg-cyan-50/50 text-[#167fa8]'
-                                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'
-                        ]">
+                        <button
+                            type="button"
+                            @click="activeTab = 'css'"
+                            :class="[
+                                'flex items-center justify-center gap-1.5 px-2 py-3.5 text-xs font-medium transition',
+                                activeTab === 'css'
+                                    ? 'border-b-2 border-cyan-500 bg-cyan-50/50 text-[#167fa8] dark:bg-cyan-950/30 dark:text-cyan-400'
+                                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200'
+                            ]">
                             <Code2 class="h-3.5 w-3.5" />
                             CSS
                         </button>
@@ -244,16 +263,16 @@ const exportHtml = () => {
                         <div class="mb-6 flex items-center gap-3">
 
                             <div
-                                class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#1686ac]">
+                                class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#1686ac] dark:bg-cyan-950/40 dark:text-cyan-400">
                                 <SlidersHorizontal class="h-5 w-5" />
                             </div>
 
                             <div>
-                                <h2 class="text-sm font-semibold text-[#10233f]">
+                                <h2 class="text-sm font-semibold text-[#10233f] dark:text-gray-100">
                                     Shadow Settings
                                 </h2>
 
-                                <p class="text-xs text-slate-500">
+                                <p class="text-xs text-slate-500 dark:text-gray-400">
                                     Configure your text shadow
                                 </p>
                             </div>
@@ -265,62 +284,79 @@ const exportHtml = () => {
                             <!-- X -->
                             <div>
                                 <label
-                                    class="mb-2 flex justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                                    class="mb-2 flex justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-gray-400">
                                     <span>Horizontal Offset</span>
 
-                                    <span class="font-mono text-[#167fa8]">
+                                    <span class="font-mono text-[#167fa8] dark:text-cyan-400">
                                         {{ settings.x }}px
                                     </span>
                                 </label>
 
-                                <input v-model.number="settings.x" type="range" min="-50" max="50"
+                                <input
+                                    v-model.number="settings.x"
+                                    type="range"
+                                    min="-50"
+                                    max="50"
                                     class="w-full accent-cyan-500" />
                             </div>
 
                             <!-- Y -->
                             <div>
                                 <label
-                                    class="mb-2 flex justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                                    class="mb-2 flex justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-gray-400">
                                     <span>Vertical Offset</span>
 
-                                    <span class="font-mono text-[#167fa8]">
+                                    <span class="font-mono text-[#167fa8] dark:text-cyan-400">
                                         {{ settings.y }}px
                                     </span>
                                 </label>
 
-                                <input v-model.number="settings.y" type="range" min="-50" max="50"
+                                <input
+                                    v-model.number="settings.y"
+                                    type="range"
+                                    min="-50"
+                                    max="50"
                                     class="w-full accent-cyan-500" />
                             </div>
 
                             <!-- Blur -->
                             <div>
                                 <label
-                                    class="mb-2 flex justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                                    class="mb-2 flex justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-gray-400">
                                     <span>Blur Radius</span>
 
-                                    <span class="font-mono text-[#167fa8]">
+                                    <span class="font-mono text-[#167fa8] dark:text-cyan-400">
                                         {{ settings.blur }}px
                                     </span>
                                 </label>
 
-                                <input v-model.number="settings.blur" type="range" min="0" max="50"
+                                <input
+                                    v-model.number="settings.blur"
+                                    type="range"
+                                    min="0"
+                                    max="50"
                                     class="w-full accent-cyan-500" />
                             </div>
 
                             <!-- Color -->
                             <div>
                                 <label
-                                    class="mb-2 block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                                    class="mb-2 block text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-gray-400">
                                     Shadow Color
                                 </label>
 
                                 <div class="flex gap-2">
 
-                                    <input v-model="settings.color" type="color"
-                                        class="h-11 w-14 cursor-pointer rounded-xl border border-slate-200 bg-white p-1" />
+                                    <input
+                                        v-model="settings.color"
+                                        type="color"
+                                        class="h-11 w-14 cursor-pointer rounded-xl border border-slate-200 bg-white p-1 dark:border-gray-700 dark:bg-gray-800" />
 
-                                    <input v-model="settings.color" type="text"
-                                        class="min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2.5 font-mono text-sm text-slate-700 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100" />
+                                    <input
+                                        v-model="settings.color"
+                                        type="text"
+                                        class="min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2.5 font-mono text-sm text-slate-700 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:focus:border-cyan-500 dark:focus:ring-cyan-950"
+                                        placeholder="#17447f" />
 
                                 </div>
                             </div>
@@ -328,15 +364,20 @@ const exportHtml = () => {
                             <!-- Opacity -->
                             <div>
                                 <label
-                                    class="mb-2 flex justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                                    class="mb-2 flex justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-gray-400">
                                     <span>Opacity</span>
 
-                                    <span class="font-mono text-[#167fa8]">
+                                    <span class="font-mono text-[#167fa8] dark:text-cyan-400">
                                         {{ settings.opacity.toFixed(2) }}
                                     </span>
                                 </label>
 
-                                <input v-model.number="settings.opacity" type="range" min="0" max="1" step="0.05"
+                                <input
+                                    v-model.number="settings.opacity"
+                                    type="range"
+                                    min="0"
+                                    max="1"
+                                    step="0.05"
                                     class="w-full accent-cyan-500" />
                             </div>
 
@@ -349,49 +390,60 @@ const exportHtml = () => {
                         <div class="mb-5 flex items-center gap-3">
 
                             <div
-                                class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#1686ac]">
+                                class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#1686ac] dark:bg-cyan-950/40 dark:text-cyan-400">
                                 <Type class="h-5 w-5" />
                             </div>
 
                             <div>
-                                <h2 class="text-sm font-semibold text-[#10233f]">
+                                <h2 class="text-sm font-semibold text-[#10233f] dark:text-gray-100">
                                     Text Content
                                 </h2>
 
-                                <p class="text-xs text-slate-500">
+                                <p class="text-xs text-slate-500 dark:text-gray-400">
                                     Customize your preview text
                                 </p>
                             </div>
 
                         </div>
 
-                        <label class="mb-2 block text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                        <label
+                            class="mb-2 block text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-gray-400">
                             Preview Text
                         </label>
 
-                        <input v-model="text" type="text" placeholder="Enter text..."
-                            class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-700 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100" />
+                        <input
+                            v-model="text"
+                            type="text"
+                            placeholder="Enter text..."
+                            class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-700 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:placeholder:text-gray-500 dark:focus:border-cyan-500 dark:focus:ring-cyan-950" />
 
-                        <div class="mt-5 overflow-hidden rounded-xl border border-slate-200">
+                        <div class="mt-5 overflow-hidden rounded-xl border border-slate-200 dark:border-gray-700">
 
-                            <div class="border-b border-slate-200 bg-slate-50 px-4 py-3">
-                                <p class="text-xs font-semibold text-slate-700">
+                            <div class="border-b border-slate-200 bg-slate-50 px-4 py-3 dark:border-gray-700 dark:bg-gray-800">
+                                <p class="text-xs font-semibold text-slate-700 dark:text-gray-200">
                                     Custom CSS
                                 </p>
 
-                                <p class="mt-1 text-[11px] text-slate-500">
+                                <p class="mt-1 text-[11px] text-slate-500 dark:text-gray-400">
                                     Additional styles applied to the preview.
                                 </p>
                             </div>
 
-                            <textarea v-model="customCss" spellcheck="false"
+                            <textarea
+                                v-model="customCss"
+                                spellcheck="false"
                                 class="min-h-[300px] w-full resize-y bg-[#101827] p-4 font-mono text-xs leading-6 text-slate-200 outline-none"></textarea>
 
                         </div>
 
-                        <button type="button" @click="copyText(customCss, 'custom')"
-                            class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-medium text-slate-600 transition hover:border-cyan-300 hover:text-[#167fa8]">
-                            <Check v-if="copied === 'custom'" class="h-4 w-4 text-emerald-500" />
+                        <button
+                            type="button"
+                            @click="copyText(customCss, 'custom')"
+                            class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-medium text-slate-600 transition hover:border-cyan-300 hover:text-[#167fa8] dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-cyan-700 dark:hover:text-cyan-400">
+
+                            <Check
+                                v-if="copied === 'custom'"
+                                class="h-4 w-4 text-emerald-500" />
 
                             <Copy v-else class="h-4 w-4" />
 
@@ -406,31 +458,34 @@ const exportHtml = () => {
                         <div class="mb-5 flex items-center gap-3">
 
                             <div
-                                class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#1686ac]">
+                                class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#1686ac] dark:bg-cyan-950/40 dark:text-cyan-400">
                                 <Code2 class="h-5 w-5" />
                             </div>
 
                             <div>
-                                <h2 class="text-sm font-semibold text-[#10233f]">
+                                <h2 class="text-sm font-semibold text-[#10233f] dark:text-gray-100">
                                     Generated CSS
                                 </h2>
 
-                                <p class="text-xs text-slate-500">
+                                <p class="text-xs text-slate-500 dark:text-gray-400">
                                     Based on your shadow settings
                                 </p>
                             </div>
 
                         </div>
 
-                        <div class="overflow-hidden rounded-xl border border-slate-200">
+                        <div class="overflow-hidden rounded-xl border border-slate-200 dark:border-gray-700">
 
                             <pre
                                 class="max-h-[500px] overflow-auto bg-[#101827] p-4 text-xs leading-6 text-slate-200"><code>{{ generatedCss }}</code></pre>
 
                         </div>
 
-                        <button type="button" @click="copyText(generatedCss, 'css')"
+                        <button
+                            type="button"
+                            @click="copyText(generatedCss, 'css')"
                             class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#17447f] px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-[#123968]">
+
                             <Check v-if="copied === 'css'" class="h-4 w-4" />
 
                             <Copy v-else class="h-4 w-4" />
@@ -446,24 +501,25 @@ const exportHtml = () => {
                 <div class="min-w-0 space-y-6">
 
                     <!-- Preview -->
-                    <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <section
+                        class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
 
                         <div
-                            class="flex flex-col gap-4 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                            class="flex flex-col gap-4 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between dark:border-gray-800">
 
                             <div class="flex items-center gap-3">
 
                                 <div
-                                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#1686ac]">
+                                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-[#1686ac] dark:bg-cyan-950/40 dark:text-cyan-400">
                                     <Type class="h-5 w-5" />
                                 </div>
 
                                 <div>
-                                    <h2 class="text-sm font-semibold text-[#10233f]">
+                                    <h2 class="text-sm font-semibold text-[#10233f] dark:text-gray-100">
                                         Text Shadow Editor
                                     </h2>
 
-                                    <p class="text-xs text-slate-500">
+                                    <p class="text-xs text-slate-500 dark:text-gray-400">
                                         {{ settings.x }}px ·
                                         {{ settings.y }}px ·
                                         {{ settings.blur }}px
@@ -474,13 +530,16 @@ const exportHtml = () => {
 
                             <div class="flex items-center gap-2">
 
-                                <span class="rounded-lg bg-cyan-50 px-3 py-1.5 text-xs font-medium text-[#167fa8]">
+                                <span
+                                    class="rounded-lg bg-cyan-50 px-3 py-1.5 text-xs font-medium text-[#167fa8] dark:bg-cyan-950/40 dark:text-cyan-400">
                                     Text Shadow
                                 </span>
 
                                 <span
-                                    class="flex items-center gap-1.5 rounded-lg bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-600">
+                                    class="flex items-center gap-1.5 rounded-lg bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400">
+
                                     <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+
                                     Live
                                 </span>
 
@@ -489,20 +548,23 @@ const exportHtml = () => {
                         </div>
 
                         <!-- Canvas -->
-                        <div class="border-b border-slate-200 bg-[#f8fafc] p-6 sm:p-10">
+                        <div
+                            class="border-b border-slate-200 bg-[#f8fafc] p-6 sm:p-10 dark:border-gray-800 dark:bg-gray-950">
 
-                            <div class="mb-5 rounded-xl border border-cyan-200 bg-cyan-50/70 px-4 py-3">
+                            <div
+                                class="mb-5 rounded-xl border border-cyan-200 bg-cyan-50/70 px-4 py-3 dark:border-cyan-900/70 dark:bg-cyan-950/30">
 
                                 <div class="flex items-start gap-3">
 
-                                    <SlidersHorizontal class="mt-0.5 h-4 w-4 shrink-0 text-[#167fa8]" />
+                                    <SlidersHorizontal
+                                        class="mt-0.5 h-4 w-4 shrink-0 text-[#167fa8] dark:text-cyan-400" />
 
                                     <div>
-                                        <p class="text-xs font-semibold text-[#167fa8]">
+                                        <p class="text-xs font-semibold text-[#167fa8] dark:text-cyan-400">
                                             Visual Text Shadow Editor
                                         </p>
 
-                                        <p class="mt-1 text-xs leading-5 text-[#2b6b86]">
+                                        <p class="mt-1 text-xs leading-5 text-[#2b6b86] dark:text-cyan-200/70">
                                             Adjust the controls to see your text shadow
                                             update instantly.
                                         </p>
@@ -512,15 +574,18 @@ const exportHtml = () => {
 
                             </div>
 
-                            <div class="rounded-xl border border-dashed border-slate-300 bg-white p-3">
+                            <div
+                                class="rounded-xl border border-dashed border-slate-300 bg-white p-3 dark:border-gray-700 dark:bg-gray-900">
 
-                                <div class="flex min-h-[430px] w-full items-center justify-center overflow-auto rounded-lg border border-slate-200 bg-white p-8"
+                                <div
+                                    class="flex min-h-[430px] w-full items-center justify-center overflow-auto rounded-lg border border-slate-200 bg-white p-8 dark:border-gray-700 dark:bg-gray-800"
                                     style="background-image: radial-gradient(#d7dde5 1px, transparent 1px); background-size: 20px 20px;">
 
                                     <div
-                                        class="flex min-h-[330px] w-full items-center justify-center overflow-auto rounded-lg border border-slate-200 bg-white/90 p-10">
+                                        class="flex min-h-[330px] w-full items-center justify-center overflow-auto rounded-lg border border-slate-200 bg-white/90 p-10 dark:border-gray-700 dark:bg-gray-900/90">
 
-                                        <div class="text-preview whitespace-nowrap text-center text-5xl font-bold text-[#10233f] sm:text-7xl"
+                                        <div
+                                            class="text-preview whitespace-nowrap text-center text-5xl font-bold text-[#10233f] dark:text-gray-100 sm:text-7xl"
                                             :style="previewStyle">
                                             {{ text || 'CSSCraft' }}
                                         </div>
@@ -533,14 +598,15 @@ const exportHtml = () => {
                         </div>
 
                         <!-- Properties -->
-                        <div class="grid grid-cols-2 divide-x divide-slate-200 sm:grid-cols-4">
+                        <div
+                            class="grid grid-cols-2 divide-x divide-slate-200 dark:divide-gray-800 sm:grid-cols-4">
 
                             <div class="p-4">
                                 <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                                     X Offset
                                 </p>
 
-                                <p class="mt-1 truncate font-mono text-xs font-semibold text-[#10233f]">
+                                <p class="mt-1 truncate font-mono text-xs font-semibold text-[#10233f] dark:text-gray-200">
                                     {{ settings.x }}px
                                 </p>
                             </div>
@@ -550,7 +616,7 @@ const exportHtml = () => {
                                     Y Offset
                                 </p>
 
-                                <p class="mt-1 truncate font-mono text-xs font-semibold text-[#10233f]">
+                                <p class="mt-1 truncate font-mono text-xs font-semibold text-[#10233f] dark:text-gray-200">
                                     {{ settings.y }}px
                                 </p>
                             </div>
@@ -560,7 +626,7 @@ const exportHtml = () => {
                                     Blur
                                 </p>
 
-                                <p class="mt-1 truncate font-mono text-xs font-semibold text-[#10233f]">
+                                <p class="mt-1 truncate font-mono text-xs font-semibold text-[#10233f] dark:text-gray-200">
                                     {{ settings.blur }}px
                                 </p>
                             </div>
@@ -570,7 +636,7 @@ const exportHtml = () => {
                                     Opacity
                                 </p>
 
-                                <p class="mt-1 truncate font-mono text-xs font-semibold text-[#10233f]">
+                                <p class="mt-1 truncate font-mono text-xs font-semibold text-[#10233f] dark:text-gray-200">
                                     {{ settings.opacity.toFixed(2) }}
                                 </p>
                             </div>
@@ -580,41 +646,44 @@ const exportHtml = () => {
                     </section>
 
                     <!-- Generated CSS -->
-                    <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <section
+                        class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
 
                         <div
-                            class="flex flex-col gap-3 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                            class="flex flex-col gap-3 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between dark:border-gray-800">
 
                             <div class="flex items-center gap-3">
 
                                 <div
-                                    class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600">
+                                    class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600 dark:bg-gray-800 dark:text-gray-300">
                                     <Code2 class="h-4 w-4" />
                                 </div>
 
                                 <div>
-                                    <h2 class="text-sm font-semibold text-[#10233f]">
+                                    <h2 class="text-sm font-semibold text-[#10233f] dark:text-gray-100">
                                         Generated CSS
                                     </h2>
 
-                                    <p class="text-xs text-slate-500">
+                                    <p class="text-xs text-slate-500 dark:text-gray-400">
                                         CSS generated from your text shadow settings.
                                     </p>
                                 </div>
 
                             </div>
 
-                            <button type="button" @click="copyText(generatedCss, 'generated-css')"
-                                class="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 transition hover:border-cyan-300 hover:text-[#167fa8]">
-                                <Check v-if="copied === 'generated-css'" class="h-3.5 w-3.5 text-emerald-500" />
+                            <button
+                                type="button"
+                                @click="copyText(generatedCss, 'generated-css')"
+                                class="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 transition hover:border-cyan-300 hover:text-[#167fa8] dark:border-gray-700 dark:text-gray-300 dark:hover:border-cyan-700 dark:hover:text-cyan-400">
+
+                                <Check
+                                    v-if="copied === 'generated-css'"
+                                    class="h-3.5 w-3.5 text-emerald-500" />
 
                                 <Copy v-else class="h-3.5 w-3.5" />
 
-                                {{
-                                    copied === 'generated-css'
-                                        ? 'Copied'
-                                        : 'Copy CSS'
-                                }}
+                                {{ copied === 'generated-css' ? 'Copied' : 'Copy CSS' }}
+
                             </button>
 
                         </div>
@@ -625,37 +694,44 @@ const exportHtml = () => {
                     </section>
 
                     <!-- Generated HTML -->
-                    <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <section
+                        class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
 
                         <div
-                            class="flex flex-col gap-3 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                            class="flex flex-col gap-3 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between dark:border-gray-800">
 
                             <div class="flex items-center gap-3">
 
                                 <div
-                                    class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600">
+                                    class="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600 dark:bg-gray-800 dark:text-gray-300">
                                     <FileCode2 class="h-4 w-4" />
                                 </div>
 
                                 <div>
-                                    <h2 class="text-sm font-semibold text-[#10233f]">
+                                    <h2 class="text-sm font-semibold text-[#10233f] dark:text-gray-100">
                                         Generated HTML
                                     </h2>
 
-                                    <p class="text-xs text-slate-500">
+                                    <p class="text-xs text-slate-500 dark:text-gray-400">
                                         HTML structure generated from your editor.
                                     </p>
                                 </div>
 
                             </div>
 
-                            <button type="button" @click="copyText(generatedHtml, 'html')"
-                                class="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 transition hover:border-cyan-300 hover:text-[#167fa8]">
-                                <Check v-if="copied === 'html'" class="h-3.5 w-3.5 text-emerald-500" />
+                            <button
+                                type="button"
+                                @click="copyText(generatedHtml, 'html')"
+                                class="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 transition hover:border-cyan-300 hover:text-[#167fa8] dark:border-gray-700 dark:text-gray-300 dark:hover:border-cyan-700 dark:hover:text-cyan-400">
+
+                                <Check
+                                    v-if="copied === 'html'"
+                                    class="h-3.5 w-3.5 text-emerald-500" />
 
                                 <Copy v-else class="h-3.5 w-3.5" />
 
                                 {{ copied === 'html' ? 'Copied' : 'Copy HTML' }}
+
                             </button>
 
                         </div>
@@ -666,41 +742,44 @@ const exportHtml = () => {
                     </section>
 
                     <!-- Complete Code -->
-                    <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <section
+                        class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
 
                         <div
-                            class="flex flex-col gap-3 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                            class="flex flex-col gap-3 border-b border-slate-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between dark:border-gray-800">
 
                             <div class="flex items-center gap-3">
 
                                 <div
-                                    class="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-50 text-[#167fa8]">
+                                    class="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-50 text-[#167fa8] dark:bg-cyan-950/40 dark:text-cyan-400">
                                     <FileCode2 class="h-4 w-4" />
                                 </div>
 
                                 <div>
-                                    <h2 class="text-sm font-semibold text-[#10233f]">
+                                    <h2 class="text-sm font-semibold text-[#10233f] dark:text-gray-100">
                                         Complete Code
                                     </h2>
 
-                                    <p class="text-xs text-slate-500">
+                                    <p class="text-xs text-slate-500 dark:text-gray-400">
                                         Ready-to-use HTML and CSS.
                                     </p>
                                 </div>
 
                             </div>
 
-                            <button type="button" @click="copyText(completeCode, 'complete')"
+                            <button
+                                type="button"
+                                @click="copyText(completeCode, 'complete')"
                                 class="inline-flex items-center justify-center gap-2 rounded-lg bg-[#17447f] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[#123968]">
-                                <Check v-if="copied === 'complete'" class="h-3.5 w-3.5" />
+
+                                <Check
+                                    v-if="copied === 'complete'"
+                                    class="h-3.5 w-3.5" />
 
                                 <Copy v-else class="h-3.5 w-3.5" />
 
-                                {{
-                                    copied === 'complete'
-                                        ? 'Copied'
-                                        : 'Copy Complete Code'
-                                }}
+                                {{ copied === 'complete' ? 'Copied' : 'Copy Complete Code' }}
+
                             </button>
 
                         </div>
