@@ -22,6 +22,7 @@ import {
     Palette,
     Braces,
     X,
+    Sparkles,
 } from "lucide-vue-next";
 
 /*
@@ -544,8 +545,8 @@ ${rules.join("\n")}
 /* Imported CSS */
 
 ${cleanImportedCSS(
-    importedCSS.value,
-)}`;
+            importedCSS.value,
+        )}`;
     }
 
     /*
@@ -805,7 +806,7 @@ function clampItemCount() {
     if (
         selectedItem.value &&
         selectedItem.value >
-            itemCount.value &&
+        itemCount.value &&
         !useImportedContent.value
     ) {
         selectedItem.value =
@@ -891,7 +892,7 @@ function cleanItemPositions() {
                     (
                         position.columnStart < 1 ||
                         position.columnStart >
-                            columns.value
+                        columns.value
                     )
                 ) ||
                 (
@@ -899,7 +900,7 @@ function cleanItemPositions() {
                     (
                         position.columnEnd < 1 ||
                         position.columnEnd >
-                            columns.value + 1
+                        columns.value + 1
                     )
                 ) ||
                 (
@@ -907,7 +908,7 @@ function cleanItemPositions() {
                     (
                         position.rowStart < 1 ||
                         position.rowStart >
-                            rows.value
+                        rows.value
                     )
                 ) ||
                 (
@@ -915,7 +916,7 @@ function cleanItemPositions() {
                     (
                         position.rowEnd < 1 ||
                         position.rowEnd >
-                            rows.value + 1
+                        rows.value + 1
                     )
                 );
 
@@ -1647,7 +1648,7 @@ watch(
         if (
             selectedItem.value &&
             selectedItem.value >
-                importedItemCount.value
+            importedItemCount.value
         ) {
             selectedItem.value =
                 null;
@@ -1686,9 +1687,9 @@ onBeforeUnmount(() => {
             <div class="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <div
-                        class="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-[#1769B0] dark:border-cyan-900/60 dark:bg-cyan-950/40 dark:text-cyan-300">
-                        <Grid3X3 class="size-3.5" />
-                        CSS BUILDER
+                        class="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#167fa8] dark:border-cyan-900/60 dark:bg-cyan-950/40 dark:text-cyan-400">
+                        <Sparkles class="h-3.5 w-3.5" />
+                        CSS Builder
                     </div>
 
                     <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
